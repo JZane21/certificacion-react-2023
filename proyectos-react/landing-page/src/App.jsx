@@ -19,9 +19,8 @@ function App() {
       <OurServices/>
       <Tours/>
       <Footer/>
-
     </>
-  )
+  );
 };
 
 export default App;

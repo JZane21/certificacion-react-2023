@@ -1,44 +1,36 @@
-import React from "react";
-
-function data(){
-    const optionLinks = [
-        {
-            id:1,
-            link:"home"
-        },
-        {
-            id:2,
-            link:"about"
-        },
-        {
-            id:3,
-            link:"services"
-        },
-        {
-            id:4,
-            link:"tours"
-        },
-    ];
+export const optionLinks = [
+    {
+        id:1,
+        link:"home"
+    },
+    {
+        id:2,
+        link:"about"
+    },
+    {
+        id:3,
+        link:"services"
+    },
+    {
+        id:4,
+        link:"tours"
+    },
+];
     
-    const socialLinks = [
-        {
-            id: 1,
-            classSocialLink: "fa-facebook"
-        },
-        {
-            id: 2,
-            classSocialLink: "fa-twitter"
-        },
-        {
-            id: 3,
-            classSocialLink: "fa-squarespace"
-        },
-    ];
+export const socialLinks = [
+    {
+        id: 1,
+        classSocialLink: "facebook"
+    },
+    {
+        id: 2,
+        classSocialLink: "twitter"
+    },
+    {
+        id: 3,
+        classSocialLink: "squarespace"
+    },
+];
 
-    return {
-        optionLinks,
-        socialLinks
-    };
-}
-
-export { data }
+export const footerOptions 
+= [...optionLinks.filter(i => i.link!=="tours"),{ id:4, link:"featured" }];

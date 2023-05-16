@@ -1,18 +1,16 @@
 import '../App.css'
-import { data } from '../data/data'
+import { socialLinks } from '../data/data'
 
-export const SocialNetworkLinks = () => {
- 
-    const {
-        socialLinks
-    } = data();
-
+export const SocialNetworkLinks = (props) => {
+    const classItem = props.classItem;
+    const classList = props.classList;
     return (
-    <ul className="nav-icons">
+    <ul className={classList}>
         { socialLinks.map(elemento => (
             <li key={elemento.id}>
-                <a href="https://www.twitter.com" target="_blank" className="nav-icon">
-                    <i className={`fab ${elemento.classSocialLink}`}></i>
+                <a href={`https://www.${elemento.classSocialLink}.com`}
+                target="_blank" className={classItem}>
+                    <i className={`fab fa-${elemento.classSocialLink}`}></i>
                 </a>
             </li>
         )) }    
