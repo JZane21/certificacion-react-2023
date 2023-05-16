@@ -67,6 +67,8 @@ const nuevoObjeto = {
 }
 console.table(nuevoObjeto);
 
+// "ARRAYS"
+
 // Objeto no existe array
 const array = [2, 4, "paul", () => {alert("HUGOOOOO");}, 3.14159];
 
