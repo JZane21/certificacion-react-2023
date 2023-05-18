@@ -1,4 +1,4 @@
-import logo from "../../images/logo.svg"
+import logo from "../../images/react.svg"
 import '../App.css'
 
 export const PrincipalLogo = () => {

@@ -11,7 +11,7 @@ console.log(typeof dinero);
 
 // BigInit
 // averiguar para que sirve la n
-let edadGil = BigInt(20493214123041238414231423959082340502348572349875209387429);
+let edadGil = BigInt(123841423142909809099870987809879878787);
 console.log(edadGil);
 console.log(typeof edadGil);
 
@@ -25,6 +25,12 @@ console.log(typeof course);
 
 // undefined -> no se sabe que valor
 // null -> decir que el valor de algo es nulo
+
+// Lo que ocurre es que undefined es un valor que denota que no
+// hay valor porque no se ha definido todavía, mientras que null
+// se usa para indicar que no hay valor porque así lo hemos
+// querido indicar expresamente.
+
 let nota;
 console.log(nota?.nombre);
 

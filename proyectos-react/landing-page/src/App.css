@@ -71,6 +71,11 @@ img:not(.nav-logo) {
   display: block;
 }
 
+.nav-final-logo{
+  max-width: 10rem;
+  max-height: 10rem;
+}
+
 h1,
 h2,
 h3,
@@ -150,9 +155,10 @@ p {
 }
 .section-title h2 {
   text-transform: uppercase;
+  color: rgb(93, 163, 254);
 }
 .section-title span {
-  color: var(--clr-primary-5);
+  color: rgb(255, 196, 70);
 }
 .section-center {
   width: 90vw;
@@ -196,8 +202,11 @@ Hero
 .hero-btn {
   padding: 0.9rem 1.6rem;
   font-size: 1.25rem;
-  background: var(--clr-white);
-  color: var(--clr-primary-5);
+  background: rgb(255, 196, 70);
+  /* var(--clr-white) */
+  color: white;
+  /* var(--clr-primary-5) */
+  font-weight: bold;
 }
 .hero-btn:hover {
   background: transparent;
@@ -207,7 +216,7 @@ Hero
 @media screen and (min-width: 768px) {
   .hero {
     background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
-      url('../images/main.jpeg') center/cover no-repeat;
+      url('../images/pexels-pixabay.jpg') center/cover no-repeat;
   }
   .hero-banner {
     padding: 0;
@@ -336,7 +345,7 @@ Featured Tours
   position: relative;
 }
 .tour-img {
-  height: 15rem;
+  height: 20rem;
   object-fit: cover;
 }
 .tour-date {
@@ -404,7 +413,7 @@ Footer
 ===============
 */
 .footer {
-  background: var(--clr-grey-1);
+  background: rgb(255, 196, 70);
   text-align: center;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -440,6 +449,7 @@ Footer
   text-transform: capitalize;
   letter-spacing: var(--spacing);
   color: var(--clr-white);
+  font-weight: bold;
 }
 .copyright span {
   margin-left: 0.5rem;
@@ -456,7 +466,7 @@ Navbar
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--clr-white);
+  background: rgb(255, 196, 70);
   box-shadow: var(--dark-shadow);
   z-index: 2;
   height: 4rem;
@@ -494,7 +504,8 @@ Navbar
   text-transform: capitalize;
   letter-spacing: var(--spacing);
   transition: var(--transition);
-  color: var(--clr-grey-1);
+  color: white;
+  /* var(--clr-grey-1) */
   cursor: pointer;
   font-size: 1rem;
 }
@@ -538,7 +549,8 @@ Navbar
   }
   .nav-link:hover {
     padding: 0;
-    color: var(--clr-primary-5);
+    color: rgb(93, 163, 254);
+    /* var(--clr-primary-5) */
     background: transparent;
   }
   .nav-icons {
@@ -550,12 +562,14 @@ Navbar
   }
   .nav-icon {
     margin-right: 0.7rem;
-    color: var(--clr-primary-5);
+    color: white;
+    /* var(--clr-primary-5) */
     font-size: 1.2rem;
     transition: var(--transition);
   }
   .nav-icon:hover {
-    color: var(--clr-primary-8);
+    color: rgb(93, 163, 254);
+    /* var(--clr-primary-8) */
   }
 }
 

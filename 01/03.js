@@ -28,12 +28,15 @@ console.table(ESTUDIANTE);
 // Si queremos bloquear el poder agregar o eliminar
 // atributos en un objeto
 // Object.seal(ESTUDIANTE);
-// ESTUDIANTE.FALTAS = 2;
-// delete ESTUDIANTE.FALTAS;
+// ESTUDIANTE.FALTAS = 2; // atributo nuevo
+// delete ESTUDIANTE.FALTAS; //eliminar atributo viejo
 // console.table(ESTUDIANTE);
 
 // Destructurar objetos
-const { PROMEDIO } = ESTUDIANTE;
+const { NOMBRE } = ESTUDIANTE;
+
+console.log("---------------------------------")
+console.log(NOMBRE);
 
 const { NOMBRE: nombreEstudiante, APELLIDO: apellidoEstudiante } = ESTUDIANTE;
 
@@ -82,3 +85,16 @@ const objeto3 = [...array,...Object.keys(nuevoObjeto).map(key => nuevoObjeto[key
 
 objeto3.forEach(i => console.log(i));
 
+class ClaseUno {
+    constructor(parametroUno, parametroDos) {
+        this.atributoUno = parametroUno;
+        this.atributoDos = parametroDos;
+    }
+    getAtributoUno() {
+        console.log(this.atributoUno);
+    }
+};
+
+const ObjetoNuevoUno = new ClaseUno("Jose","Carrasco");
+
+ObjetoNuevoUno.getAtributoUno();
