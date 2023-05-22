@@ -3,12 +3,16 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.css'
 import { Presupuesto } from './components/Presupuesto'
-import { Resumen } from './components/Resumen'
+import { AgregarGasto } from './components/AgregarGasto';
+import { ResumenGastos } from './components/ResumenGastos';
 
 function App() {
   const [presupuesto,setPresupuesto] = useState(0);
   const [gastos,setGastos] = useState(0);
   const [cambio,setCambio] = useState(false);
+  const [modal,setModal] = useState(false);
+
+  const [listaGastos,setListaGastos] = useState([]);
 
   return (
     <section className='flex justify-center items-center h-screen'>
@@ -19,11 +23,25 @@ function App() {
       setPresupuesto={setPresupuesto}
       />)}
 
-      {cambio && (<Resumen
-      presupuesto={presupuesto}
-      gastos={gastos}
-      />)}
+      {(cambio && !modal) && (
+        <ResumenGastos
+        presupuesto = {presupuesto}
+        gastos = {gastos}
+        setModal = {setModal}
+        listaGastos = {listaGastos}
+        />
+      )}
       
+      {modal && (
+        <AgregarGasto
+        listaGastos={listaGastos}
+        setListaGastos={setListaGastos}
+        setModal={setModal}
+        gastos={gastos}
+        setGastos={setGastos}
+        />
+      )}
+
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

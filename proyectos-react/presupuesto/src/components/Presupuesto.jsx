@@ -7,10 +7,19 @@ export const Presupuesto = ({cambio,setCambio,presupuesto, setPresupuesto}) => {
   const cambiarPresupuesto = (evento) => {
     evento.preventDefault();
     // modificando el estado
-    let valor = evento.target.value;
+    let valor = 0;
 
-    if(valor>=0){
-      setPresupuesto(evento.target.value);
+    if(evento.target.value===""){
+      setPresupuesto(0);
+    }else if(Number(evento.target.value)){
+      valor = parseInt(evento.target.value);
+      if(valor>=0){
+        setPresupuesto(valor);
+      }else{
+        alert("DATO INACEPTABLE");
+      }
+    }else{
+      alert("DATO INACEPTABLE");
     }
     // no se debe modificar el valor del estado
     // presupuesto = '';
@@ -72,7 +81,7 @@ export const Presupuesto = ({cambio,setCambio,presupuesto, setPresupuesto}) => {
         value={presupuesto}
         onChange={e => {cambiarPresupuesto(e)}}
         placeholder="ingrese el presupuesto"
-        type="number"
+        type="text"
         />
         <button className="
         rounded-lg

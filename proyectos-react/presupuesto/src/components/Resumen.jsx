@@ -4,9 +4,10 @@ export const Resumen = ({presupuesto,gastos}) => {
 
   const datosDesplegables = 
   [
-    "Presupuesto: "+presupuesto,
-    "Gastos: "+gastos,
-    "Total: "+(presupuesto-gastos>0 ? presupuesto-gastos : "GASTOS EXCEDIDOS")
+    {enunciado: "Presupuesto: ", datoRegistrado: presupuesto, id: 1},
+    {enunciado: "Gastos: ", datoRegistrado: parseInt(gastos), id: 2},
+    {enunciado: "Total: ", datoRegistrado: (presupuesto-gastos>0 
+      ? presupuesto-gastos : "GASTOS EXCEDIDOS"), id: 3}
   ];
 
   return (
@@ -24,7 +25,9 @@ export const Resumen = ({presupuesto,gastos}) => {
       <div className="flex flex-col m-3">
       {
         datosDesplegables.map(dato => (
-          <p key={dato} className="text-base text-bold">{dato}</p>
+          <p key={dato.id} className="text-base text-bold">
+            {dato.enunciado} {dato.datoRegistrado}  
+          </p>
         ))
       }
     </div>
