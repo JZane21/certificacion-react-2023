@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BotonAgregar } from "./components/BotonAgregar";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,7 +8,7 @@ import { AgregarGasto } from './components/AgregarGasto';
 import { ResumenGastos } from './components/ResumenGastos';
 
 function App() {
-  const [presupuesto,setPresupuesto] = useState(0);
+  const [presupuesto,setPresupuesto] = useState('');
   const [gastos,setGastos] = useState(0);
   const [cambio,setCambio] = useState(false);
   const [modal,setModal] = useState(false);
@@ -15,20 +16,30 @@ function App() {
   const [listaGastos,setListaGastos] = useState([]);
 
   return (
-    <section className='flex justify-center items-center h-screen'>
+    <section className='
+    flex flex-col container mx-auto bg-slate-400 justify-center items-center
+    h-screen
+    '>
       {!cambio && (<Presupuesto
       cambio={cambio}
       setCambio={setCambio}
       presupuesto={presupuesto}
       setPresupuesto={setPresupuesto}
+      setGastos={setGastos}
+      setListaGastos={setListaGastos}
       />)}
 
-      {(cambio && !modal) && (
+      {(cambio) && (
         <ResumenGastos
         presupuesto = {presupuesto}
         gastos = {gastos}
         setModal = {setModal}
         listaGastos = {listaGastos}
+        setCambio = {setCambio}
+        setPresupuesto={setPresupuesto}
+        setListaGastos={setListaGastos}
+        setGastos = {setGastos}
+        modal = {modal}
         />
       )}
       
@@ -38,9 +49,18 @@ function App() {
         setListaGastos={setListaGastos}
         setModal={setModal}
         gastos={gastos}
-        setGastos={setGastos}
+        modal={modal}
+        presupuesto={presupuesto}
         />
       )}
+
+      {cambio && (
+        <BotonAgregar
+        modal={modal}
+        setModal={setModal}
+        />
+      )}
+      
 
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">

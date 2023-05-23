@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { RequerimientoFormulario } from "./RequerimientoFormulario";
+import { useEffect, useState } from "react";
 
 export const AgregarGasto = (props) => {
   const listaGastos = props.listaGastos;
@@ -6,6 +7,7 @@ export const AgregarGasto = (props) => {
   const setModal = props.setModal;
   const gastos = props.gastos;
   const setGastos = props.setGastos;
+  const presupuesto = props.presupuesto;
 
   const [fechaFormulario,setFechaFormulario] = useState('');
   const [gastoFormulario,setGastoFormulario] = useState('');
@@ -22,11 +24,15 @@ export const AgregarGasto = (props) => {
   const handleSubmit = (evento) => {
     evento.preventDefault();
     if(![fechaFormulario,gastoFormulario,montoFormulario].includes('')){
-      setListaGastos([...listaGastos, 
-        new GastoRegistrado(
-          fechaFormulario,gastoFormulario,montoFormulario
-        )]);
-      setGastos(gastos+ parseInt(montoFormulario));
+      if(parseInt(presupuesto)>=(gastos+ parseInt(montoFormulario))){
+        setListaGastos([...listaGastos, 
+          new GastoRegistrado(
+            fechaFormulario,gastoFormulario,montoFormulario
+          )]);
+        setGastos(gastos+ parseInt(montoFormulario));
+      }else{
+        alert("COMANDO INACEPTABLE");
+      }
       setModal(false);
     }
   };
@@ -75,27 +81,23 @@ export const AgregarGasto = (props) => {
         </h2>
         {
           RequerimientosFormulario.map(orden => (
-            <div key={orden.instruccion}>
-              <label className="font-bold">
-                {orden.instruccion}
-              </label>
-              <input 
-              className="border-2 w-full mt-1 outline-none mb-3 rounded-lg
-              p-1"
-              type={orden.tipoDato}
-              value={orden.valueState}
-              placeholder={orden.placeHolder}
-              onChange={(evento) => orden.actualizarValor(evento.target.value)}
-              />
-            </div>
+            <RequerimientoFormulario
+            instruccion={orden.instruccion}
+            tipoDato={orden.tipoDato}
+            valueState={orden.valueState}
+            placeHolder={orden.placeHolder}
+            actualizarValor={orden.actualizarValor}
+            />
           ))
         }
         <div className="flex flex-row">
           <input className="relative rounded-lg p-2 m-2 cursor-pointer 
-          uppercase bg-orange-400 text-white font-bold"
+          uppercase bg-orange-500 text-white font-bold
+          hover:bg-orange-400 active:bg-orange-600"
           type="submit" value="agregar gasto"/>
           <button className="relative rounded-lg p-2 m-2 cursor-pointer 
-          uppercase bg-orange-400 text-white font-bold"
+          uppercase bg-orange-500 text-white font-bold
+          hover:bg-orange-400 active:bg-orange-600"
           onClick={() => setModal(false)}>
             Cancelar
           </button>

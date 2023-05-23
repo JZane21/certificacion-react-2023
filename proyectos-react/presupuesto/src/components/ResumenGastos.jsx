@@ -6,15 +6,20 @@ import { Gasto } from "./Gasto";
 export const ResumenGastos = (props) => {
   const presupuesto = props.presupuesto;
   const gastos = props.gastos;
-  const setModal = props.setModal;
   const listaGastos = props.listaGastos;
+  const setCambio = props.setCambio;
+  const setPresupuesto = props.setPresupuesto;
+  // const setListaGastos = props.setListaGastos;
+  // const setGastos = props.setGastos;
 
   return (
-    <section className="flex flex-col p-2 m-2 bg-transparent border-2
-    border-blue-600 justify-center items-center rounded-xl">
+    <section className="flex flex-col p-2 bg-transparent 
+    justify-center items-center rounded-xl w-4/5 absolute">
       <Resumen
       presupuesto={presupuesto}
       gastos={gastos}
+      setCambio={setCambio}
+      setPresupuesto={setPresupuesto}
       />
       { listaGastos.length!==0 &&
         (<ListaGasto>
@@ -29,13 +34,6 @@ export const ResumenGastos = (props) => {
           }
         </ListaGasto>)
       }
-      <div className="flex flex-row-reverse w-full">
-        <button className="inline-block rounded-full text-white bg-orange-400 
-        m-1 font-bold pt-0 pl-3 pb-3 pr-3 text-center text-5xl"
-        onClick={() => setModal(true)}>
-          +
-        </button>
-      </div>
     </section>
   )
 }
