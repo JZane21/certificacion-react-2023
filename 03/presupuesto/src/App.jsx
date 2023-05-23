@@ -1,16 +1,19 @@
 import { useState } from "react";
 import Presupuesto from "./components/Presupuesto";
-import FormNuevoGasto from "./components/FormNuevoGasto";
 import Resumen from "./components/Resumen";
 import IconoNuevoGasto from "./assets/nuevo-gasto.svg";
 import "./App.css";
 import { Modal } from "./components/Modal";
+import { ListaDeGastos } from "./components/ListaDeGastos";
 
 function App() {
   const [presupuesto, setPresupuesto] = useState("");
   const [gastos, setGastos] = useState(0);
   const [click, setClick] = useState(false);
   const [newGasto, setNewGasto] = useState(false);
+
+  const [listaGastos, setListaGastos] = useState([]);
+
   return (
     <div className="container mx-auto bg-slate-400 mt-20">
       {!click ? (
@@ -39,6 +42,9 @@ function App() {
               }}
             />
           </div>
+          <ListaDeGastos
+          listaGastos={listaGastos}
+          />
         </>
       )}
 
@@ -47,6 +53,8 @@ function App() {
           gastos={gastos}
           setGastos={setGastos}
           setNewGasto={setNewGasto}
+          listaGastos={listaGastos}
+          setListaGastos={setListaGastos}
           />
         )
       }

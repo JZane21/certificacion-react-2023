@@ -7,8 +7,8 @@ import 'react-circular-progressbar/dist/styles.css';
 const Resumen = ({ presupuesto, setPresupuesto, setGastos, setClick, gastos }) => {
   const [porcentaje, setPorcentaje] = useState(0);
   useEffect(() => {
-    setPorcentaje(Math.trunc(gastos/presupuesto*100));
-  }, [])
+    setPorcentaje(Math.trunc(parseInt(gastos)/parseInt(presupuesto)*100));
+  }, [gastos])
   const resetear = () => {
     setPresupuesto('');
     setGastos(0);
