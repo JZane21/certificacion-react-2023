@@ -42,9 +42,14 @@ function App() {
               }}
             />
           </div>
-          <ListaDeGastos
-          listaGastos={listaGastos}
-          />
+          {(listaGastos.length!==0) && (
+            <ListaDeGastos
+            listaGastos={listaGastos}
+            setListaGastos={setListaGastos}
+            gastos={gastos}
+            setGastos={setGastos}
+            />
+          )}
         </>
       )}
 

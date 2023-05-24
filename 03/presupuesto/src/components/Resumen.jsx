@@ -4,7 +4,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 
-const Resumen = ({ presupuesto, setPresupuesto, setGastos, setClick, gastos }) => {
+const Resumen = ({ presupuesto, setPresupuesto, setGastos, setClick, gastos}) => {
   const [porcentaje, setPorcentaje] = useState(0);
   useEffect(() => {
     setPorcentaje(Math.trunc(parseInt(gastos)/parseInt(presupuesto)*100));

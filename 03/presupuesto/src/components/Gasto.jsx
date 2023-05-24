@@ -7,11 +7,16 @@ export const Gasto = (props) => {
   ];
 
   return (
-    <div className="flex flex-col bg-white shadow-sm rounded-lg p-2 m-2 pl-3">
+    <div className="flex flex-col bg-white shadow-sm rounded-lg p-2
+    mt-2 pl-3 w-max z-10">
       {
         DATOS.map( dato => (
-          <p key={dato.id} className="text-black">
-            <span className="font-bold">{dato.tipoDato}</span> {dato.datoObtenido}
+          <p key={dato.id}
+          className="text-black flex-wrap">
+            <span className="font-bold">{dato.tipoDato}</span> 
+            <span className="block">
+            {dato.datoObtenido}
+            </span>
           </p>
         ))
       }
