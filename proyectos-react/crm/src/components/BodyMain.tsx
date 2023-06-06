@@ -14,12 +14,19 @@ export const BodyMain = () => {
           <Link className={`${location.pathname.includes('dashboard') &&
           "text-red-400 font-bold"}`}
           to={`dashboard`}>DASHBOARD</Link>
+
           <Link className={`${location.pathname.includes('clients') &&
           "text-blue-400 font-bold"}`}
           to={`clients`}>CLIENTS</Link>
+
+          <Link className={`${location.pathname.includes('add_client') &&
+          "text-yellow-400 font-bold"}`}
+          to={`add_client`}>ADD CLIENT</Link>
+
           <Link className={`${location.pathname.includes('products') &&
           "text-green-400 font-bold"}`}
           to={`products`}>PRODUCTS</Link>
+
         </div>
       </>
       </SideBar>

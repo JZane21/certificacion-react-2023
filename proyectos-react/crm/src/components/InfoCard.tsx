@@ -1,23 +1,15 @@
-import ClientInterface from "../models/ClientInterface";
-
 interface Props{
-  Client:ClientInterface;
+  dato:string,
+  contenido:string|JSX.Element,
 }
 
-export const InfoCard = ({Client}:Props) => {
-  const name:string = Client.name;
-  const lastName:string = Client.lastName;
-  const company:string = Client.company;
-  const INFO = [name,lastName,company];
+export const InfoCard = ({dato,contenido}:Props) => {
+  
   return (
-    <div className="flex flex-col p-1 m-1 h-max">
-      {
-        INFO.map(item => (
-          <p key={item} className="font-semibold text-white text-base">
-            {item}
-          </p>
-        ))
-      }
+    <div className="border border-gray-300 rounded-lg shadow-md p-4 bg-blue-500 text-white">
+      <h1 className="text-2xl font-semibold mb-2">{dato}</h1>
+      <div className="border-t border-white my-2"></div>
+      <p className="text-lg">{contenido}</p>
     </div>
   );
 };
